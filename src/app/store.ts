@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import orderCreateReducer from "../features/order-create/orderCreateSlice";
+import orderSelectedReducer from "../features/order-create/orderSelectedSlice"
 
 export const store = configureStore({
   reducer: {
     orderCreate: orderCreateReducer,
+    orderSelected: orderSelectedReducer
   },
 });
 
