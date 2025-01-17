@@ -1,248 +1,312 @@
 {
-  "productionOrders": [
+  "products": [
     {
-      "id": 1,
+      "id": "703",
+      "description": "G&G Miwa still 6x1,5 EP/84",
+      "materialNumber": "7008630",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "706",
+      "description": "MP:Orange Zero/Zitr. Zero AS 6x1,5 DP/40",
+      "materialNumber": "7003332",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "710",
+      "description": "Naturalis medium 18x0,5 DP/36",
+      "materialNumber": "7010731",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "711",
+      "description": "Mineraalwater/Mineralwasser 6x1,0  DP/65",
+      "materialNumber": "7007232",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "712",
+      "description": "G&G Miwa still 6x1,5 EP/84",
+      "materialNumber": "7008632",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "713",
+      "description": "Naturalis medium 18x0,5 DP/36",
+      "materialNumber": "7010732",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "715",
+      "description": "G&G Miwa still 6x1,5 DP/40",
+      "materialNumber": "7008730",
+      "unitOfMeasurement": "FL"
+    },
+    {
+      "id": "716",
+      "description": "Naturalis still 18x0,5 DP/36",
+      "materialNumber": "7010830",
+      "unitOfMeasurement": "FL"
+    }
+  ],
+  "lineStatus": [
+    {
+      "lineName": "L1",
+      "id": "1",
+      "status": "Active",
+      "equipments": [
+        {
+          "name": "Labeller",
+          "status": "Active"
+        },
+        {
+          "name": "Blow Moulder",
+          "status": "Active"
+        },
+        {
+          "name": "Contiform",
+          "status": "Activating"
+        }
+      ]
+    },
+    {
+      "lineName": "L2",
+      "id": "2",
+      "status": "Error",
+      "ErrorMessage": "Blow Moulder malfunction",
+      "equipments": [
+        {
+          "name": "Labeller",
+          "status": "Active"
+        },
+        {
+          "name": "Blow Moulder",
+          "status": "Error"
+        },
+        {
+          "name": "Palettierer",
+          "status": "Activating"
+        }
+      ]
+    },
+    {
+      "lineName": "L3",
+      "id": "3",
+      "status": "Active",
+      "equipments": [
+        {
+          "name": "Blow Moulder",
+          "status": "Ready"
+        },
+        {
+          "name": "Contiform",
+          "status": "Active"
+        },
+        {
+          "name": "Labeller",
+          "status": "Activating"
+        }
+      ]
+    },
+    {
+      "lineName": "L4",
+      "id": "4",
+      "status": "Error",
+      "ErrorMessage": "Capper not responding",
+      "equipments": [
+        {
+          "name": "Capper",
+          "status": "Error"
+        },
+        {
+          "name": "Palettierer",
+          "status": "Active"
+        },
+        {
+          "name": "Labeller",
+          "status": "Activating"
+        }
+      ]
+    },
+    {
+      "lineName": "L5",
+      "id": "5",
+      "status": "Active",
+      "equipments": [
+        {
+          "name": "Contiform",
+          "status": "Ready"
+        },
+        {
+          "name": "Blow Moulder",
+          "status": "Active"
+        },
+        {
+          "name": "Capper",
+          "status": "Activating"
+        }
+      ]
+    },
+    {
+      "lineName": "L6",
+      "id": "6",
+      "status": "Error",
+      "ErrorMessage": "Palettierer jammed",
+      "equipments": [
+        {
+          "name": "Palettierer",
+          "status": "Error"
+        },
+        {
+          "name": "Labeller",
+          "status": "Active"
+        },
+        {
+          "name": "Contiform",
+          "status": "Activating"
+        }
+      ]
+    }
+  ],
+  "productionLines": [
+    {
+      "id": "1",
+      "name": "L1"
+    },
+    {
+      "id": "2",
+      "name": "L2"
+    },
+    {
+      "id": "3",
+      "name": "L3"
+    },
+    {
+      "id": "4",
+      "name": "L4"
+    },
+    {
+      "id": "5",
+      "name": "L5"
+    },
+    {
+      "id": "6",
+      "name": "L6"
+    }
+  ],
+  "lineOrders": [
+    {
+      "id": "1",
       "name": "FI0004167",
-      "line": "L1",
+      "line": {
+        "lineName": "L1",
+        "lineStatus": "Active",
+        "equipments": [
+          {
+            "name": "Labeller",
+            "status": "Active"
+          },
+          {
+            "name": "Blow Moulder",
+            "status": "Active"
+          },
+          {
+            "name": "Contiform",
+            "status": "Active"
+          }
+        ]
+      },
       "productName": "Mineraalwater/Mineralwasser 6x1,0  DP/65",
       "plannedQuantity": 1000,
       "producedQuantity": 1000,
       "status": "Finished"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "FI0004132",
-      "line": "L2",
+      "line": {
+        "lineName": "L2",
+        "lineStatus": "Error",
+        "ErrorMessage": "Blow Moulder malfunction",
+        "equipments": [
+          {
+            "name": "Labeller",
+            "status": "Active"
+          },
+          {
+            "name": "Blow Moulder",
+            "status": "Error"
+          },
+          {
+            "name": "Palettierer",
+            "status": "Activating"
+          }
+        ]
+      },
       "productName": "G&G Miwa still 6x1,5 EP/84",
-      "plannedQuantity": 10000,
-      "producedQuantity": 0,
-      "status": "Planned"
+      "plannedQuantity": 800,
+      "producedQuantity": 800,
+      "status": "Finished"
     },
     {
-      "id": "dada",
+      "id": "3",
       "name": "FI0004169",
-      "line": "L3",
+      "line": {
+        "lineName": "L3",
+        "lineStatus": "Active",
+        "equipments": [
+          {
+            "name": "Blow Moulder",
+            "status": "Ready"
+          },
+          {
+            "name": "Contiform",
+            "status": "Active"
+          },
+          {
+            "name": "Labeller",
+            "status": "Activating"
+          }
+        ]
+      },
       "productName": "MP:Orange Zero/Zitr. Zero AS 6x1,5 DP/40",
-      "quantity": 500,
-      "comment": "",
-      "status": "Planned",
       "plannedQuantity": 500,
-      "producedQuantity": 0
+      "producedQuantity": 500,
+      "status": "Finished"
+    },
+    {
+      "id": "1e14034c-c623-44a3-b890-120ad90228da",
+      "name": "FI00041699",
+      "line": {
+        "id": "3",
+        "lineName": "L3",
+        "lineStatus": "Active",
+        "equipments": [
+          {
+            "name": "Blow Moulder",
+            "status": "Ready"
+          },
+          {
+            "name": "Contiform",
+            "status": "Active"
+          },
+          {
+            "name": "Labeller",
+            "status": "Activating"
+          }
+        ]
+      },
+      "productName": "Naturalis still 18x0,5 DP/36",
+      "status": "Finished",
+      "plannedQuantity": 800,
+      "producedQuantity": 800
     }
   ],
-  "lineStatus": [
+  "linesEquipment": [
     {
-      "lineName": "L1",
-      "id": 1,
-      "status": "Active",
-      "equipments": [
-        {
-          "name": "Labeller",
-          "status": "Active"
-        },
-        {
-          "name": "Blow Moulder",
-          "status": "Active"
-        },
-        {
-          "name": "Contiform",
-          "status": "Activating"
-        }
-      ]
-    },
-    {
-      "lineName": "L2",
-      "id": 2,
-      "status": "Error",
-      "ErrorMessage": "Blow Moulder malfunction",
-      "equipments": [
-        {
-          "name": "Labeller",
-          "status": "Active"
-        },
-        {
-          "name": "Blow Moulder",
-          "status": "Error"
-        },
-        {
-          "name": "Palettierer",
-          "status": "Activating"
-        }
-      ]
-    },
-    {
-      "lineName": "L3",
-      "id": 3,
-      "status": "Active",
-      "equipments": [
-        {
-          "name": "Blow Moulder",
-          "status": "Ready"
-        },
-        {
-          "name": "Contiform",
-          "status": "Active"
-        },
-        {
-          "name": "Labeller",
-          "status": "Activating"
-        }
-      ]
-    },
-    {
-      "lineName": "L4",
-      "id": 4,
-      "status": "Error",
-      "ErrorMessage": "Capper not responding",
-      "equipments": [
-        {
-          "name": "Capper",
-          "status": "Error"
-        },
-        {
-          "name": "Palettierer",
-          "status": "Active"
-        },
-        {
-          "name": "Labeller",
-          "status": "Activating"
-        }
-      ]
-    },
-    {
-      "lineName": "L5",
-      "id": 5,
-      "status": "Active",
-      "equipments": [
-        {
-          "name": "Contiform",
-          "status": "Ready"
-        },
-        {
-          "name": "Blow Moulder",
-          "status": "Active"
-        },
-        {
-          "name": "Capper",
-          "status": "Activating"
-        }
-      ]
-    },
-    {
-      "lineName": "L6",
-      "id": 6,
-      "status": "Error",
-      "ErrorMessage": "Palettierer jammed",
-      "equipments": [
-        {
-          "name": "Palettierer",
-          "status": "Error"
-        },
-        {
-          "name": "Labeller",
-          "status": "Active"
-        },
-        {
-          "name": "Contiform",
-          "status": "Activating"
-        }
-      ]
-    }
-  ],
-  "productionData": {
-    "totalOrders": 1000,
-    "completedOrders": 950
-  },
-  "productionLines": [
-    {
-      "id": 1,
-      "name": "L1"
-    },
-    {
-      "id": 2,
-      "name": "L2"
-    },
-    {
-      "id": 3,
-      "name": "L3"
-    },
-    {
-      "id": 4,
-      "name": "L4"
-    },
-    {
-      "id": 5,
-      "name": "L5"
-    },
-    {
-      "id": 6,
-      "name": "L6"
-    }
-  ],
-  "products": [
-    {
-      "id": 703,
-      "description": "G&G Miwa still 6x1,5 EP/84",
-      "materialNumber": "7008630",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 706,
-      "description": "MP:Orange Zero/Zitr. Zero AS 6x1,5 DP/40",
-      "materialNumber": "7003332",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 710,
-      "description": "Naturalis medium 18x0,5 DP/36",
-      "materialNumber": "7010731",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 711,
-      "description": "Mineraalwater/Mineralwasser 6x1,0  DP/65",
-      "materialNumber": "7007232",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 712,
-      "description": "G&G Miwa still 6x1,5 EP/84",
-      "materialNumber": "7008632",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 713,
-      "description": "Naturalis medium 18x0,5 DP/36",
-      "materialNumber": "7010732",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 715,
-      "description": "G&G Miwa still 6x1,5 DP/40",
-      "materialNumber": "7008730",
-      "unitOfMeasurement": "FL"
-    },
-    {
-      "id": 716,
-      "description": "Naturalis still 18x0,5 DP/36",
-      "materialNumber": "7010830",
-      "unitOfMeasurement": "FL"
-    }
-  ],
-  "lineOrders": [
-    {
+      "id": "1",
       "lineName": "L1",
       "lineStatus": "Active",
-      "orders": [
-        {
-          "orderId": 1,
-          "orderName": "FI0004167",
-          "productName": "Mineraalwater/Mineralwasser 6x1,0  DP/65",
-          "plannedQuantity": 1000,
-          "producedQuantity": 1000,
-          "orderStatus": "Finished"
-        }
-      ],
       "equipments": [
         {
           "name": "Labeller",
@@ -259,19 +323,10 @@
       ]
     },
     {
+      "id": "2",
       "lineName": "L2",
       "lineStatus": "Error",
       "ErrorMessage": "Blow Moulder malfunction",
-      "orders": [
-        {
-          "orderId": 2,
-          "orderName": "FI0004132",
-          "productName": "G&G Miwa still 6x1,5 EP/84",
-          "plannedQuantity": 10000,
-          "producedQuantity": 0,
-          "orderStatus": "Planned"
-        }
-      ],
       "equipments": [
         {
           "name": "Labeller",
@@ -288,9 +343,9 @@
       ]
     },
     {
+      "id": "3",
       "lineName": "L3",
       "lineStatus": "Active",
-      "orders": [],
       "equipments": [
         {
           "name": "Blow Moulder",
@@ -307,10 +362,10 @@
       ]
     },
     {
+      "id": "4",
       "lineName": "L4",
       "lineStatus": "Error",
       "ErrorMessage": "Capper not responding",
-      "orders": [],
       "equipments": [
         {
           "name": "Capper",
@@ -327,9 +382,9 @@
       ]
     },
     {
+      "id": "5",
       "lineName": "L5",
       "lineStatus": "Active",
-      "orders": [],
       "equipments": [
         {
           "name": "Contiform",
@@ -346,10 +401,9 @@
       ]
     },
     {
+      "id": "6",
       "lineName": "L6",
       "lineStatus": "Error",
-      "ErrorMessage": "Palettierer jammed",
-      "orders": [],
       "equipments": [
         {
           "name": "Palettierer",

@@ -5,7 +5,7 @@ import { RootState } from '../../app/store';
 import { useSelector } from 'react-redux';
 
 const ProductionLine = () => {
-
+    console.log('ProductionLine');
     const selectedOrder = useSelector((state: RootState) => state.orderSelected.selectedOrder)
 
     return (
@@ -13,14 +13,14 @@ const ProductionLine = () => {
         {selectedOrder && <Paper className="bg-white shadow-md rounded-lg p-4 mt-4 w-full">
             <Stack direction="row" spacing={2} className='items-center mb-2'>
                 <Typography gutterBottom className="text-black-900 text-left font-bold text-xl">
-                    Line Status for {selectedOrder.lineName}
+                    Line Status for {selectedOrder.line.lineName} - {selectedOrder.name}
                 </Typography>
-                <Chip label={selectedOrder.lineStatus} color={OrderStatus[selectedOrder.lineStatus as keyof typeof OrderStatus]} />
+                <Chip label={selectedOrder.line.lineStatus} color={OrderStatus[selectedOrder.line.lineStatus as keyof typeof OrderStatus]} />
             </Stack>
 
             <Divider />
-            <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">{selectedOrder && selectedOrder.equipments &&
-                selectedOrder.equipments.map((epq: Equipment) => (
+            <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">{selectedOrder && selectedOrder.line.equipments &&
+                selectedOrder.line.equipments.map((epq: Equipment) => (
                     <Card key={epq.name}>
                         <CardActionArea
                             sx={{

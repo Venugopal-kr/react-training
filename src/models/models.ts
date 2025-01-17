@@ -8,21 +8,13 @@ export interface OrderForm {
     status?: string | undefined
   }
 
-  export enum OrderState {
-    PLANNED = 1,
-    ACTIVATING = 2,
-    ACTIVE = 3,
-    FINISHED = 4,
-    CANCELLED = 5
-  }
-
   export interface ProductionLine {
     id: number;
     name: string;
   }
 
   export interface ProductionOrder {
-    id?: number;
+    id?: string;
     name: string;
     line: string;
     productName: string;
@@ -31,11 +23,20 @@ export interface OrderForm {
     status: string;
   }
 
-  export interface LineOrder {
+  export interface LineEquipment {
     lineName: string;
     lineStatus: string;
-    orders: Order[];
     equipments: Equipment[];
+  }
+
+  export interface LineOrder {
+    id: string;
+    name: string;
+    line: Line;
+    productName: string;
+    plannedQuantity: number;
+    producedQuantity: number;
+    status: string;
   }
 
   export interface Order {
@@ -50,6 +51,13 @@ export interface OrderForm {
   export interface Equipment {
     name: string;
     status: string;
+  }
+
+  export interface Line {
+    lineName: string;
+    lineStatus: string;
+    ErrorMessage?: string;
+    equipments: Equipment[];
   }
 
 
