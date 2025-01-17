@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Paper } from '@mui/material';
+import { TextField, Button, Typography, Paper, CircularProgress } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { OrderForm as OrderFormData } from '../../models/models';
+import { LineOrder, OrderForm as OrderFormData } from '../../models/models';
 import ProductDropdown from './ProductDropdown';
 import ProductionLineDropdown from './ProductionLineDropdown';
 import { createProductionOrder } from '../../services/api';
 import { useNavigate } from 'react-router';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { GetLineEquipmentStatus } from '../../services/Queries';
 
 const OrderForm: React.FC = () => {
+
+    const queryClient = useQueryClient();
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState<OrderFormData>({
         comment: '',
@@ -19,10 +24,17 @@ const OrderForm: React.FC = () => {
         status: 'Planned',
     });
 
+    const { data: lineEquipment, isLoading } = GetLineEquipmentStatus(formData.lineId || '');
+
     const handleProductChange = (productId: string) => {
         setFormData({ ...formData, productId });
     };
 
+    const mutation = useMutation({mutationFn: createProductionOrder, onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['orders'] });
+        navigate("/");
+    }});
+      
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -31,23 +43,32 @@ const OrderForm: React.FC = () => {
                 return;
             }
 
-            const productionOrder = {
-                name: formData.orderName,
-                line: formData.lineId,
-                productName: formData.productId,
-                quantity: formData.orderQuantity || 0,
-                comment: formData.comment || '',
-                status: formData.status || 'Planned',
-                plannedQuantity: formData.orderQuantity || 0,
-                producedQuantity: 0,
-            };
-            await createProductionOrder(productionOrder);
-            navigate("/")
+
+            if (lineEquipment) {
+                console.log(lineEquipment);
+                const productionOrder: LineOrder = {
+                    id: crypto.randomUUID(),
+                    name: formData.orderName,
+                    line: lineEquipment,
+                    productName: formData.productId,
+                    status: formData.status || 'Planned',
+                    plannedQuantity: formData.orderQuantity || 0,
+                    producedQuantity: 0,
+                };
+                mutation.mutate(productionOrder);
+            }
         } catch (error) {
             console.error(error);
         }
     };
 
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center h-full">
+                <CircularProgress />
+            </div>
+        );
+    }
 
     return (
         <Paper sx={{ width: '90%', margin: '2rem auto', padding: '2rem' }} elevation={5}>

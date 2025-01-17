@@ -1,6 +1,6 @@
 import './ProductionLine.css';
 import { Box, Card, CardActionArea, CardContent, Chip, Divider, Paper, Stack, Typography } from '@mui/material';
-import { Equipment, LineOrder, OrderStatus } from '../../models/models';
+import { Equipment, LineEquipment, OrderStatus } from '../../models/models';
 import { useContext } from 'react';
 import { ProductionContext } from '../../contexts/ProductionContext';
 
@@ -16,7 +16,7 @@ const ProductionLines = () => {
     console.log(productionLineStatus);
     return (
         <>
-        {productionLineStatus && productionLineStatus.map((line:LineOrder) => (<Paper key={line.lineName} className="bg-white shadow-md rounded-lg p-4 mt-4 w-full">
+        {productionLineStatus && productionLineStatus.map((line:LineEquipment) => (<Paper key={line.lineName} className="bg-white shadow-md rounded-lg p-4 mt-4 w-full">
             <Stack direction="row" spacing={2} className='items-center mb-2'>
                 <Typography gutterBottom className="text-black-900 text-left font-bold text-xl">
                     Line Status for {line.lineName}

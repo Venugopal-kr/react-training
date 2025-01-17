@@ -17,6 +17,7 @@ const ProductionLine = ({ line, onLineChange }: { line: string, onLineChange: (v
     }, []);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.value)
         onLineChange(event.target.value as string);
     };
 
@@ -34,7 +35,7 @@ const ProductionLine = ({ line, onLineChange }: { line: string, onLineChange: (v
                     <em>None</em>
                 </MenuItem>
                 {lines.length > 0 && lines.map((line: Line) => (
-                    <MenuItem key={line.id} value={line.name}>{line.name}</MenuItem>
+                    <MenuItem key={line.id} value={line.id}>{line.name}</MenuItem>
                 ))}
             </TextField>
         </>
